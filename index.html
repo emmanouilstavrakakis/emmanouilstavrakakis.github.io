@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emmanouil Stavrakakis | Mathematics</title>
+  <meta name="description" content="Emmanouil Stavrakakis, mathematics PhD student at ENS de Lyon, working at the Institut Camille Jordan. Research in high-dimensional probability, convex geometry, and functional analysis.">
+  <meta name="color-scheme" content="light">
+  <!-- Appearance: adjust the CSS below. Page text starts at <body>. -->
+  <style>
+    :root {
+      --paper: #faf9f6;
+      --ink: #252e33;
+      --muted: #606b70;
+      --accent: #234f61;
+      --line: #d8dcd8;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 2rem; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    ::selection { background: #dbe8e9; }
+    .wrap { width: min(1040px, calc(100% - 64px)); margin-inline: auto; }
+    .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 10;
+      padding: 8px 16px;
+      background: white;
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      padding-block: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+    nav a {
+      padding-block: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+    nav a:hover { color: var(--accent); text-decoration: underline; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 230px;
+      align-items: center;
+      gap: 64px;
+      padding-block: 76px 68px;
+    }
+    .eyebrow, .kind {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow { margin: 0 0 10px; }
+    .profile-heading {
+      display: grid;
+      grid-template-columns: 168px minmax(0, 1fr);
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 25px;
+    }
+    .portrait {
+      display: block;
+      width: 168px;
+      height: 210px;
+      object-fit: cover;
+      object-position: 50% 80%;
+      border-radius: 4px;
+    }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+      overflow-wrap: anywhere;
+    }
+    .name-line { display: block; }
+    .intro { margin: 0 0 16px; max-width: 650px; font-size: 19px; line-height: 1.7; }
+    .interests { margin: 0; max-width: 650px; color: var(--muted); }
+    .geometry { margin: 0; text-align: center; }
+    .geometry img { display: block; width: 100%; height: auto; }
+    .geometry figcaption { margin-top: 14px; font-family: var(--serif); font-size: 14px; color: var(--muted); }
+    .section {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 44px;
+      padding-block: 42px;
+      border-top: 1px solid var(--line);
+    }
+    h2 { margin: 0; font-size: 28px; line-height: 1.25; letter-spacing: -.02em; }
+    h3 { margin: 5px 0 8px; font-size: 24px; line-height: 1.35; }
+    .entry + .entry { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--line); }
+    .kind { display: block; margin: 0 0 8px; }
+    .detail { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
+    .teaching-copy { margin: 14px 0 10px; }
+    .course-list { margin: 0; padding-left: 1.2em; }
+    .course-list li::marker { color: var(--accent); }
+    .education-list { margin: 0; padding: 0; list-style: none; }
+    .education-list li + li { margin-top: 26px; }
+    .education-list h3 { font-size: 22px; margin-top: 0; margin-bottom: 3px; }
+    .education-list p { margin: 0; }
+    .education-list .education-dates { margin-bottom: 5px; }
+    .institution { font-size: 16px; }
+    .email { font-size: clamp(19px, 3vw, 25px); font-family: var(--serif); overflow-wrap: anywhere; }
+    .contact-text { margin: 0 0 10px; }
+    .contact-emails { margin: 0; padding: 0; list-style: none; }
+    .contact-emails li + li { margin-top: 10px; }
+    .location { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
+    .extra-links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 16px; font-size: 15px; }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 18px;
+      padding-block: 25px 34px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer p { margin: 0; }
+    @media (max-width: 760px) {
+      .hero { gap: 28px; grid-template-columns: minmax(0, 1fr) 160px; padding-block: 50px; }
+      .profile-heading { grid-template-columns: 128px minmax(0, 1fr); gap: 18px; }
+      .portrait { width: 128px; height: 160px; }
+      .section { grid-template-columns: 155px minmax(0, 1fr); gap: 28px; }
+    }
+    @media (max-width: 580px) {
+      .wrap { width: calc(100% - 40px); }
+      .site-header { align-items: flex-start; flex-direction: column; gap: 5px; padding-block: 20px 12px; }
+      nav { gap: 0 22px; }
+      .hero { grid-template-columns: 1fr; gap: 26px; padding-block: 42px; }
+      .profile-heading { grid-template-columns: 112px minmax(0, 1fr); gap: 16px; }
+      .portrait { width: 112px; height: 140px; }
+      h1 { font-size: clamp(24px, 6.3vw, 30px); }
+      .geometry { width: 160px; justify-self: center; }
+      .intro { font-size: 18px; }
+      .section { grid-template-columns: 1fr; gap: 24px; padding-block: 32px; }
+      h2 { font-size: 27px; }
+      h3 { font-size: 23px; }
+    }
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .wrap { width: 100%; }
+      nav, .geometry, .skip-link, footer { display: none; }
+      .site-header { padding-block: 0 12px; }
+      .hero { display: block; padding-block: 24px; }
+      h1 { font-size: 26pt; }
+      .intro { font-size: 12pt; }
+      .section { padding-block: 20px; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; }
+      .entry, .education-list li { break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="wrap">
+    <header class="site-header">
+      <nav aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ABOUT: update your name, biography, and research interests here. -->
+      <section class="hero" id="about" aria-labelledby="name">
+        <div>
+          <div class="profile-heading">
+            <img class="portrait" src="assets/portrait.png" width="168" height="210" alt="Sitting outdoors with a black dog">
+            <div>
+              <p class="eyebrow">Mathematics · ENS de Lyon · ICJ</p>
+              <h1 id="name"><span class="name-line">Emmanouil</span> <span class="name-line">Stavrakakis</span></h1>
+            </div>
+          </div>
+          <p class="intro">
+            I am a PhD student in mathematics at
+            <a href="https://www.ens-lyon.fr/en/">ENS de Lyon</a>, working at the
+            <a href="https://math.univ-lyon1.fr/icj/">Institut Camille Jordan (ICJ)</a>
+            under the supervision of Professor Guillaume Aubrun.
+          </p>
+          <p class="interests">
+            My research interests lie in high-dimensional probability,
+            convex geometry, and functional analysis.
+          </p>
+          <p class="extra-links">
+            <a href="assets/cv.pdf" download="Emmanouil-Stavrakakis-CV.pdf" type="application/pdf">Download full CV (PDF)</a>
+            <a href="https://scholar.google.com/citations?user=XRayWN0AAAAJ&amp;hl=en">Google Scholar</a>
+          </p>
+        </div>
+
+        <!-- Keep this image in the assets folder alongside index.html. -->
+        <figure class="geometry">
+          <img src="assets/triakis-octahedron.png" width="960" height="1047" alt="A triakis octahedron with translucent green and amber triangular faces.">
+          <figcaption>The Triakis Octahedron in 3 Dimensions</figcaption>
+        </figure>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="research-title">
+        <h2 id="research-title">Research &amp;<br>writing</h2>
+        <div>
+          <article class="entry">
+            <p class="kind">Preprint</p>
+            <h3>Fitting Gaussian clouds in normed spaces</h3>
+            <p class="detail">with Guillaume Aubrun.</p>
+            <!-- Add the exact author list and year here when ready. Example:
+            <p class="detail">AUTHOR LIST · YEAR</p>
+            -->
+            <!-- Once you have the real URL, add a link here. Example:
+            <p class="extra-links"><a href="PASTE_THE_REAL_PREPRINT_URL_HERE">Read the preprint</a></p>
+            -->
+          </article>
+          <article class="entry">
+            <p class="kind">Master’s thesis</p>
+            <h3><a href="https://pergamos.lib.uoa.gr/uoa/dl/object/3471182">On the structure of Boolean functions</a></h3>
+            <p class="detail">National and Kapodistrian University of Athens.</p>
+            <p class="detail">Supervised by Professor Konstantinos Tyros.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="teaching" aria-labelledby="teaching-title">
+        <h2 id="teaching-title">Teaching</h2>
+        <div>
+          <h3>École Centrale de Lyon</h3>
+          <p class="institution">Bachelor in Computer Science for Engineers</p>
+          <p class="teaching-copy">I teach exercise classes (<em lang="fr">travaux dirigés</em>, TD) in:</p>
+          <ul class="course-list">
+            <li>Calculus 1</li>
+            <li>Linear Algebra</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <ol class="education-list">
+          <li>
+            <h3>PhD in Mathematics</h3>
+            <p class="detail education-dates">2025–present</p>
+            <p class="institution">ENS de Lyon · Institut Camille Jordan</p>
+            <p class="detail">In progress · Supervisor: Professor Guillaume Aubrun.</p>
+          </li>
+          <li>
+            <h3>Master’s in Pure Mathematics</h3>
+            <p class="detail education-dates">2023–2025</p>
+            <p class="institution"><a href="https://en.uoa.gr/">National and Kapodistrian University of Athens</a> (NKUA)</p>
+            <p class="detail">Master’s thesis: <a href="https://pergamos.lib.uoa.gr/uoa/dl/object/3471182">On the structure of Boolean functions</a></p>
+          </li>
+          <li>
+            <h3>Bachelor’s in Mathematics</h3>
+            <p class="detail education-dates">2018–2023</p>
+            <p class="institution">National and Kapodistrian University of Athens (NKUA)</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <div>
+          <p class="contact-text">You can reach me by email:</p>
+          <ul class="contact-emails">
+            <li><span class="email">stavrakakis arobas math.univ-lyon1.fr</span></li>
+            <li><span class="email">emmanouil.stavrakakis arobas ens-lyon.fr</span></li>
+          </ul>
+          <p class="location">Institut Camille Jordan · ENS de Lyon<br>Lyon, France</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>ENS de Lyon · ICJ</p>
+      <a href="#about">Back to top ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
