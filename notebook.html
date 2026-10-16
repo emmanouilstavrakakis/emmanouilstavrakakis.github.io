@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research notes, open questions, and selected theorems by Emmanouil Stavrakakis.">
+  <meta name="color-scheme" content="light">
+  <title>Mathematical notes | Emmanouil Stavrakakis</title>
+
+  <!-- All styling is included here. No external CSS or JavaScript is needed. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #222222;
+      --muted: #606060;
+      --rule: #dededb;
+      --link: #234c68;
+      --serif: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    :focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 4px;
+    }
+
+    .nb-skip {
+      position: absolute;
+      top: 0.75rem;
+      left: 1rem;
+      z-index: 1;
+      padding: 0.4rem 0.75rem;
+      background: #ffffff;
+      transform: translateY(-200%);
+    }
+
+    .nb-skip:focus { transform: translateY(0); }
+
+    .nb-wrap {
+      width: min(100% - 3rem, 46rem);
+      margin-inline: auto;
+    }
+
+    .nb-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem 1.5rem;
+      padding-block: 1.25rem 0.9rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+    }
+
+    .nb-header nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+    }
+
+    .nb-header a {
+      display: inline-block;
+      padding-block: 0.25rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nb-header a:hover { text-decoration: underline; }
+
+    .nb-intro { margin-block: 2rem 1.75rem; }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+      font-weight: 600;
+      overflow-wrap: break-word;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.85rem, 4vw, 2.3rem);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    .nb-lead {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .nb-section {
+      margin-block: 0 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--rule);
+      scroll-margin-top: 1rem;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.3rem;
+    }
+
+    .nb-number {
+      margin-right: 0.35em;
+      color: var(--muted);
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+
+    .nb-entry + .nb-entry { margin-top: 1.5rem; }
+
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.125rem;
+    }
+
+    p { margin: 0.6rem 0 0; }
+
+    .nb-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.2rem 0.9rem;
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      line-height: 1.6;
+    }
+
+    .nb-meta a { white-space: nowrap; }
+
+    .nb-pending {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    /* Optional theorem and proof styles for future entries. */
+    .nb-statement {
+      margin-block: 0.85rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--rule);
+      font-style: italic;
+    }
+
+    .nb-statement strong { font-style: normal; }
+
+    math { font-family: "Cambria Math", "STIX Two Math", math; }
+
+    .nb-comments {
+      margin-top: 0.25rem;
+      padding-block: 0.8rem;
+      border-block: 1px solid var(--rule);
+      scroll-margin-top: 1rem;
+    }
+
+    .nb-comments summary {
+      width: fit-content;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .nb-comments summary::marker { color: var(--muted); }
+
+    .nb-comments p {
+      margin-top: 0.6rem;
+      font-size: 0.9375rem;
+    }
+
+    .nb-comment-note { color: var(--muted); }
+
+    .nb-footer {
+      padding-block: 1rem 1.5rem;
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+    }
+
+    .nb-footer p { margin: 0; }
+
+    @media (max-width: 480px) {
+      .nb-wrap { width: calc(100% - 2rem); }
+      .nb-header { gap: 0.35rem 1rem; }
+      .nb-header nav { gap: 0.4rem 1rem; }
+      .nb-intro { margin-top: 1.5rem; }
+    }
+
+    @media print {
+      body { font-size: 11pt; }
+      .nb-wrap { width: 100%; max-width: none; }
+      .nb-header, .nb-comments, .nb-skip { display: none; }
+      .nb-intro { margin-top: 0; }
+      a { color: inherit; }
+      .nb-entry { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div id="math-notebook">
+    <a class="nb-skip" href="#notes-main">Skip to content</a>
+
+    <div class="nb-wrap">
+      <header class="nb-header">
+        <a href="index.html">← Main page</a>
+        <nav aria-label="Notes navigation">
+          <a href="#directions">Research</a>
+          <a href="#theorems">Theorems</a>
+        </nav>
+      </header>
+
+      <main id="notes-main" tabindex="-1">
+        <header class="nb-intro">
+          <h1>Mathematical notes</h1>
+          <p class="nb-lead">Research notes, open questions, and selected theorems.</p>
+        </header>
+
+        <section class="nb-section" id="directions" aria-labelledby="directions-title">
+          <h2 id="directions-title"><span class="nb-number">1.</span> Research notes</h2>
+
+          <!-- EDIT: replace the short placeholders with your notes. -->
+          <article class="nb-entry" id="gaussian-clouds" aria-labelledby="gaussian-title">
+            <h3 id="gaussian-title">Fitting Gaussian clouds in normed spaces</h3>
+            <p class="nb-meta">
+              <span>Preprint · with Guillaume Aubrun</span>
+              <a href="https://arxiv.org/pdf/2610.20299">Paper (PDF) ↗</a>
+            </p>
+            <p class="nb-pending">Further directions to be added.</p>
+          </article>
+
+          <article class="nb-entry" id="boolean-functions" aria-labelledby="boolean-title">
+            <h3 id="boolean-title">On the structure of Boolean functions</h3>
+            <p class="nb-meta">
+              <span>Master’s thesis · supervised by Konstantinos Tyros</span>
+              <a href="https://pergamos.lib.uoa.gr/uoa/dl/object/3471182">Thesis ↗</a>
+            </p>
+            <p class="nb-pending">Further directions to be added.</p>
+          </article>
+        </section>
+
+        <section class="nb-section" id="theorems" aria-labelledby="theorems-title">
+          <h2 id="theorems-title"><span class="nb-number">2.</span> Selected theorems</h2>
+          <p class="nb-pending">Statements and proof sketches to be added.</p>
+
+          <!-- ADD A THEOREM: remove the placeholder above, then copy and edit.
+          <article class="nb-entry" id="theorem-short-name">
+            <h3>Theorem title</h3>
+            <p class="nb-meta">Author · reference</p>
+            <p class="nb-statement"><strong>Theorem.</strong> State all assumptions and the conclusion.</p>
+            <p><strong>Proof.</strong> Add a proof or proof sketch.</p>
+          </article>
+          For notation, use <var>x</var>, <sup>2</sup>, <sub>n</sub>, or MathML.
+          -->
+        </section>
+
+        <!-- One compact comments section; opens only when the reader chooses. -->
+        <details class="nb-comments" id="discussion">
+          <summary>Comments</summary>
+          <p class="nb-comment-note">Questions and corrections are welcome. A GitHub account is required to post.</p>
+          <p>
+            <a href="https://github.com/emmanouilstavrakakis/emmanouilstavrakakis.github.io/issues/new?title=%5Bnotebook%5D%20Mathematical%20notes"
+               target="_blank" rel="noopener noreferrer">Leave a comment on GitHub ↗</a>
+          </p>
+        </details>
+      </main>
+
+      <footer class="nb-footer">
+        <p>Emmanouil Stavrakakis</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
